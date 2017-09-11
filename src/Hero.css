@@ -1,0 +1,243 @@
+@import url('https://fonts.googleapis.com/css?family=Heebo');
+
+.Hero svg {
+    width: 100%;
+    height: auto;
+}
+
+.Hero {
+    transform: rotate(74deg) translate(345px, -185px);
+    transition: all ease-in-out 600ms;
+    overflow: hidden;
+    max-width:90vw;
+    filter: drop-shadow(16px 0 16px black);
+}
+
+.Hero:after {
+	content:'';
+    top:0;
+    bottom: 20px;
+    right: 0;
+    left: 0;
+	transform:translateX(100%);
+    mix-blend-mode: lighten;
+    opacity: .3;
+	position: absolute;
+	z-index:1;
+	animation: shine 10s infinite;
+	background: linear-gradient(to right, rgba(255,255,255,0) 0%,rgba(255,255,255,0.8) 50%,rgba(128,186,232,0) 99%,rgba(125,185,232,0) 100%);
+}
+
+
+.Hero:hover, .Hero:focus, .Hero:active {
+    transform: rotate(90deg) translate(25vh, -3vw) scale(1.5);
+    cursor: pointer;
+}
+
+.Hero:hover:after, .Hero:focus:after, .Hero:active:after {
+    animation: none;
+}
+
+@media (min-width:481px) {
+    .Hero {
+        max-width:90vw;
+    }
+    .Hero:hover, .Hero:focus, .Hero:active {
+        transform: rotate(90deg) translate(25vh, -4vw) scale(1.5);
+    }
+}
+
+@media (min-width:761px) {
+    .Hero {
+        max-width:60vw;
+        transform: rotate(12deg) translate(350px, 115px);
+    }
+    .Hero:hover, .Hero:focus, .Hero:active {
+        transform: rotate(0deg) translate(180px, 120px) scale(1.5);
+    }
+
+    .Hero:hover g#status_bar, .Hero:focus g#status_bar, .Hero:active g#status_bar {
+        transform: rotate(-90deg) translate(80px, 1470px) scale(-1, -1);
+    }
+
+    .Hero:hover text#time, .Hero:focus text#time, .Hero:active text#time {
+        transform:         rotate(90deg) translate(553px, -165px) scale(-1);
+    }
+
+    .Hero:hover g#Charge, .Hero:focus g#Charge, .Hero:active g#Charge {
+        transform: translate(0, -410px);
+    }
+    .Hero:hover g#Apps image, .Hero:focus g#Apps image, .Hero:active g#Apps image {
+        transform: rotate(90deg) translate(-90px, -1545px);
+    }
+    .Hero:hover g#Apps image#Starbucks_Origins, .Hero:focus g#Apps image#Starbucks_Origins, .Hero:active g#Apps image#Starbucks_Origins {
+        transform: rotate(90deg) translate(-1190px, -2705px);
+    }
+
+    .Hero:hover g#Apps image#Videos_Icon, .Hero:focus g#Apps image#Videos_Icon, .Hero:active g#Apps image#Videos_Icon {
+        transform: rotate(90deg) translate(-654px, -2705px);
+    }
+    .Hero:hover g#Apps image#Weather_Icon, .Hero:focus g#Apps image#Weather_Icon, .Hero:active g#Apps image#Weather_Icon {
+        transform: rotate(90deg) translate(-374px, -2417px);
+    }
+    .Hero:hover g#Apps image#Mail_Icon, .Hero:focus g#Apps image#Mail_Icon, .Hero:active g#Apps image#Mail_Icon, .Hero:hover g#Apps image#Safari_Icon, .Hero:focus g#Apps image#Safari_Icon, .Hero:active g#Apps image#Safari_Icon, .Hero:hover g#Apps image#Icon_Music, .Hero:focus g#Apps image#Icon_Music, .Hero:active g#Apps image#Icon_Music, .Hero:hover g#Apps image#Messages_Icon, .Hero:focus g#Apps image#Messages_Icon, .Hero:active g#Apps image#Messages_Icon  {
+        transform: rotate(90deg) translate(-520px, -1665px);
+    }
+    .Hero:hover g#Apps image#Reminders_Icon, .Hero:focus g#Apps image#Reminders_Icon, .Hero:active g#Apps image#Reminders_Icon, .Hero:hover g#Apps image#iBooks_Icon, .Hero:focus g#Apps image#iBooks_Icon, .Hero:active g#Apps image#iBooks_Icon  {
+        display: none;
+    }
+
+    .Hero:hover rect#Blur_Bar, .Hero:focus rect#Blur_Bar, .Hero:active rect#Blur_Bar {
+        transform: rotate(90deg) translate(-510px, -1896px);
+        height: 1822px;
+        fill: url(#ipad-background-2);
+    }
+    .Hero:hover rect#white_overlay, .Hero:focus rect#white_overlay, .Hero:active rect#white_overlay {
+        transform: rotate(90deg) translate(-530px, -1896px);
+        height: 1822px;
+        width: 232px;
+    }
+
+    .Hero:hover rect#Display_Border, .Hero:focus rect#Display_Border, .Hero:active rect#Display_Border {
+        fill: url(#ipad-background-2);
+    }
+}
+
+@media (min-width:861px) {
+    .Hero {
+        max-width:60vw;
+        transform: rotate(10deg) translate(340px, 185px);
+    }
+    .Hero:hover, .Hero:focus, .Hero:active {
+        transform: rotate(0deg) translate(20vw, 25vw) scale(1.5);
+    }
+}
+
+@media (min-width:961px) {
+    .Hero {
+        max-width:60vw;
+        transform: rotate(10deg) translate(320px, 165px);
+    }
+}
+
+@media (min-width:1040px) {
+    .Hero {
+        max-width:55vw;
+        transform: rotate(10deg) translate(340px, 165px);
+    }
+    .Hero:hover, .Hero:focus, .Hero:active {
+        transform: rotate(0deg) translate(25vw, 15vw) scale(1.5);
+    }
+}
+
+@media (min-width:1140px) {
+    .Hero {
+        max-width:45vw;
+        transform: rotate(10deg) translate(540px, 140px);
+    }
+    .Hero:hover, .Hero:focus, .Hero:active {
+        transform: rotate(0deg) translate(25vw, 10vw) scale(1.4);
+    }
+}
+
+@keyframes shine {
+	0%, 90% {transform:translateX(-100%);}
+	100% {transform:translateX(100%);}
+}
+
+/* SVG */
+.cls-1, .cls-2, .cls-3, .cls-7, .cls-5, #Charge-2 {
+  fill: white;
+}
+
+.cls-1, .cls-10, .cls-2, .cls-5, .cls-7, .cls-8, .cls-9 {
+  fill-rule: evenodd;
+}
+
+.cls-1 {
+  filter: url(#filter);
+}
+
+.cls-2 {
+  stroke: #000;
+  stroke-opacity: 0.4;
+  stroke-width: 1px;
+  filter: url(#filter-2);
+}
+
+.cls-2, .cls-7 {
+  stroke-linejoin: round;
+}
+
+.cls-3 {
+  filter: url(#filter-3);
+  fill: url(#ipad-background);
+}
+
+.cls-4 {
+  fill: none;
+}
+
+.cls-6 {
+  font-size: 28px;
+  font-family: "SF UI Display", "Heebo", sans-serif;
+  fill: white;
+}
+
+.cls-7 {
+  fill-opacity: 0;
+  stroke-width: 7px;
+  stroke: url(#linear-gradient);
+  filter: url(#filter-4);
+}
+
+.cls-8 {
+  fill: #3b3b3b;
+}
+
+.cls-9 {
+  fill: #073277;
+  filter: url(#filter-5);
+}
+
+.cls-10 {
+  opacity: 0.05;
+}
+
+.cls-11 {
+    fill: white;
+    filter: url(#filter-2);
+}
+
+.cls-12 {
+    stroke: #000;
+    fill: none;
+}
+
+.cls-13 {
+    fill: #fff;
+    filter: url(#filter-4);
+}
+
+.cls-14 {
+    stroke: inherit;
+    filter: none;
+    fill: inherit;
+}
+
+.cls-15 {
+    stroke: url(#linear-gradient);
+    filter: none;
+    fill: none;
+}
+
+.cls-16 {
+    fill: url(#ipad-background);
+    filter: url(#filter-6);
+    clip-path: inset(20px 10px 130px 10px);
+}
+
+.cls-17 {
+    fill: rgba(255, 255, 255, .13);
+    mix-blend-mode: lighten;
+}

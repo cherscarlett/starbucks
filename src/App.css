@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Bad+Script|Satisfy');
+
+.App {
+  text-align: center;
+  font-family: 'Bad Script', cursive;
+  overflow: hidden;
+  position: relative;
+  height: 100vh;
+}
+
+h1, h2, h3 {
+    font-family: 'Satisfy', cursive;
+}
