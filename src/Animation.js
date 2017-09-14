@@ -1,80 +1,69 @@
 import React, { Component } from 'react'
-import Sprite from './images/background-animation.png'
+import './Animation.css'
+
+function importAll(r) {
+  let images = {};
+  r.keys().map((item, index) => { images[item.replace('./', '')] = r(item) })
+  return images;
+}
+
+const Scenes = importAll(require.context('./images/frames', false, /\.(png)$/))
 
 class Animation extends Component {
     render() {
         return (
-            <div>
-                <canvas id="App-animation" aria-hidden="true">
-                </canvas>
+            <div id="App-animation">
+                <article id="Animation-text">
+                </article>
             </div>
         )
     }
     componentDidMount () {
-        const animation = new Image()
-        animation.src = Sprite
+        const canvas = document.getElementById('App-animation')
+        const text = document.getElementById('Animation-text')
+        const animations = []
+        let loadedNumber = 0
+        requestAnimationFrame(()=> {
+            canvas.style.opacity = 1
+            requestAnimationFrame(() => {
+                document.querySelector('.Hero.open g#status_bar').style.opacity = 0
+                document.querySelector('.Hero.open g#Apps').style.opacity = 0
+                document.querySelector('.Hero.open rect#Blur_Bar').style.opacity = 0
+                document.querySelector('.Hero.open rect#white_overlay').style.opacity = 0
+            })
+        })
 
-        let tickCount = 0
-        let frameIndex = 0
-
-        const sprite = (options) => {
-
-            const ticksPerFrame = options.ticksPerFrame || 0
-            const numberOfFrames = options.numberOfFrames || 1
-
-            return {
-                context: options.context,
-                width: options.width,
-                height: options.height,
-                image: options.image,
-                loop: options.loop,
-                render: () => {
-                    options.context.drawImage(
-                        options.image,
-                        frameIndex * options.width/numberOfFrames,
-                        0,
-                        options.width/numberOfFrames,
-                        options.height,
-                        0,
-                        0,
-                        options.width/numberOfFrames,
-                        options.height
-                    )
-                },
-                update: () => {
-                    tickCount += 1
-                    if (tickCount > ticksPerFrame) {
-                        tickCount = 0
-                        if (frameIndex < numberOfFrames - 1) {
-                            frameIndex += 1
-                        } else if (options.loop) {
-                            frameIndex = 0
-                        }
-                    }
-                }
+        const theLoop = (animation, i) => {
+            canvas.appendChild(animation)
+            if (i === 1) {
+                requestAnimationFrame(() => {
+                    animation.style.opacity = 1
+                })
+            }
+            if (i !== animations.length - 1) {
+                setTimeout(() => {
+                    theLoop(animations[i+1], i+1)
+                    animation.parentNode.removeChild(animation)
+                }, 150)
             }
         }
 
-        const canvas = document.getElementById('App-animation')
-        canvas.width = window.innerWidth
-        canvas.height = window.innerHeight
-
-        const background = sprite({
-            context: canvas.getContext("2d"),
-            width: canvas.width,
-            height: canvas.height/(600/338),
-            image: animation
-        })
-
-        const theLoop = () => {
-              window.requestAnimationFrame(theLoop)
-
-              background.update()
-              background.render()
+        const loaded = (i) => {
+            loadedNumber++
+            if (Object.values(Scenes).length - 1 === loadedNumber) {
+                setTimeout(() => {
+                    text.style.opacity = 0
+                    theLoop(animations[0], 0)
+                }, 10000)
+            }
         }
 
-        animation.addEventListener("load", theLoop)
-
+        Object.values(Scenes).forEach((path, i) => {
+            const scene = new Image()
+            scene.src = path
+            scene.addEventListener("load", loaded(i))
+            animations.push(scene)
+        })
     }
 }
 

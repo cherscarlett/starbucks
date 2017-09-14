@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import Animation from './Animation'
 import Hero from './Hero'
 import './App.css'
 

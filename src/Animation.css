@@ -1,0 +1,63 @@
+#App-animation {
+    transition: opacity 600ms ease-in-out;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+}
+foreignObject#animation_container {
+    transform: rotate(90deg) translate(1463px, 0) scale(-1);
+    width: 1273px;
+    height: auto;
+}
+
+#App-animation img {
+    width: 100%;
+    transition: opacity 600ms ease-in-out;
+    display: block;
+    margin-top: -25%;
+}
+#Animation-text {
+    color: white;
+    transition: opacity 600ms ease-in-out;
+    margin-top: 50%;
+}
+#Animation-text:before {
+    content:'Mocha Drip';
+    font-size: 6em;
+    font-family: 'Satisfy', cursive;
+    display: block;
+}
+
+
+#Animation-text:after {
+    content:'Loading...';
+    font-size: 2.5em;
+    display: block;
+    font-family: 'Bad Script', cursive;
+	animation: fade 3s infinite;
+}
+
+@media (min-width:861px) {
+    foreignObject#animation_container {
+        transform: none;
+        width: 1702px;
+        height: auto;
+    }
+    #App-animation img {
+        margin-top: -30%;
+    }
+    #Animation-text {
+        margin-top: 25%;
+    }
+}
+
+
+@keyframes fade {
+	0%, 50% {color: black;}
+	100%, 0% {color: white;}
+}

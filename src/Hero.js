@@ -1,8 +1,15 @@
 import React, { Component } from 'react'
 import './Hero.css'
 import IpadBackground from './images/desk-starbucks-ipad-background.jpg'
+import Animation from './Animation'
 
 class Hero extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            animationLoaded: false
+        }
+    }
     render() {
         return (
             <div className="Hero">
@@ -24,7 +31,7 @@ class Hero extends Component {
                   <feComposite result="composite" operator="in" in2="SourceGraphic"/>
                   <feBlend result="blend" in2="SourceGraphic"/>
                   <feGaussianBlur result="blur" stdDeviation="2.449" in="SourceAlpha"/>
-                  <feFlood result="flood" flood-color="#612b20" flood-opacity="0.27"/>
+                  <feFlood result="flood" floodColor="#612b20" floodOpacity="0.27"/>
                   <feComposite result="composite-2" operator="out" in2="blur"/>
                   <feOffset result="offset"/>
                   <feComposite result="composite-3" operator="in" in2="SourceAlpha"/>
@@ -32,24 +39,24 @@ class Hero extends Component {
                 </filter>
                 <filter id="filter-3" x="136" y="54" width="1702" height="1273" filterUnits="userSpaceOnUse">
                   <feGaussianBlur result="blur" stdDeviation="5.385" in="SourceAlpha"/>
-                  <feFlood result="flood" flood-opacity="0.09"/>
+                  <feFlood result="flood" floodOpacity="0.09"/>
                   <feComposite result="composite" operator="out" in2="blur"/>
                   <feOffset result="offset"/>
                   <feComposite result="composite-2" operator="in" in2="SourceAlpha"/>
                   <feBlend result="blend" mode="multiply" in2="SourceGraphic"/>
                 </filter>
                 <linearGradient id="linear-gradient" x1="1860.5" y1="722.803" x2="1947.34" y2="672.666" gradientUnits="userSpaceOnUse">
-                  <stop offset="0" stop-color="#f19d8a"/>
-                  <stop offset="0.3" stop-color="#fbd8c5"/>
-                  <stop offset="0.83" stop-color="#d08168"/>
-                  <stop offset="1" stop-color="#efdbcd"/>
+                  <stop offset="0" stopColor="#f19d8a"/>
+                  <stop offset="0.3" stopColor="#fbd8c5"/>
+                  <stop offset="0.83" stopColor="#d08168"/>
+                  <stop offset="1" stopColor="#efdbcd"/>
                 </linearGradient>
                 <filter id="filter-4" x="1860.5" y="654.281" width="86.84" height="86.907" filterUnits="userSpaceOnUse">
                   <feImage preserveAspectRatio="none" x="1860.5" y="654.281" width="86.84" height="86.907" result="image" xlinkHref="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iODYuODQiIGhlaWdodD0iODYuOTA3IiB2aWV3Qm94PSIwIDAgODYuODQgODYuOTA3Ij4KICA8ZGVmcz4KICAgIDxzdHlsZT4KICAgICAgLmNscy0xIHsKICAgICAgICBvcGFjaXR5OiAwLjA2OwogICAgICAgIGZpbGw6IHVybCgjbGluZWFyLWdyYWRpZW50KTsKICAgICAgfQogICAgPC9zdHlsZT4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0ibGluZWFyLWdyYWRpZW50IiB4MT0iNDMuNDIiIHkxPSI4Ni45MDciIHgyPSI0My40MiIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNmZmYiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogIDwvZGVmcz4KICA8cmVjdCBjbGFzcz0iY2xzLTEiIHdpZHRoPSI4Ni44NCIgaGVpZ2h0PSI4Ni45MDciLz4KPC9zdmc+Cg=="/>
                   <feComposite result="composite" operator="in" in2="SourceGraphic"/>
                   <feBlend result="blend" in2="SourceGraphic"/>
                   <feGaussianBlur result="blur" stdDeviation="4" in="SourceAlpha"/>
-                  <feFlood result="flood" flood-opacity="0.79"/>
+                  <feFlood result="flood" floodOpacity="0.79"/>
                   <feComposite result="composite-2" operator="out" in2="blur"/>
                   <feOffset result="offset"/>
                   <feComposite result="composite-3" operator="in" in2="SourceAlpha"/>
@@ -58,7 +65,7 @@ class Hero extends Component {
                 <filter id="filter-5" x="68" y="687" width="21" height="22" filterUnits="userSpaceOnUse">
                   <feOffset result="offset" in="SourceAlpha"/>
                   <feGaussianBlur result="blur" stdDeviation="2"/>
-                  <feFlood result="flood" flood-opacity="0.5"/>
+                  <feFlood result="flood" floodOpacity="0.5"/>
                   <feComposite result="composite" operator="in" in2="blur"/>
                   <feBlend result="blend" in="SourceGraphic"/>
                   <feImage preserveAspectRatio="none" x="73.4688" y="692.625" width="9.469" height="9.469" result="image" xlinkHref="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iOS40NjkiIGhlaWdodD0iOS40NjkiIHZpZXdCb3g9IjAgMCA5LjQ2OSA5LjQ2OSI+CiAgPGRlZnM+CiAgICA8c3R5bGU+CiAgICAgIC5jbHMtMSB7CiAgICAgICAgb3BhY2l0eTogMC40OTsKICAgICAgICBmaWxsOiB1cmwoI3JhZGlhbC1ncmFkaWVudCk7CiAgICAgIH0KICAgIDwvc3R5bGU+CiAgICA8cmFkaWFsR3JhZGllbnQgaWQ9InJhZGlhbC1ncmFkaWVudCIgY3g9IjQuNzM0IiBjeT0iNC43MzUiIHI9IjQuNzM1IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNmZmYiLz4KICAgIDwvcmFkaWFsR3JhZGllbnQ+CiAgPC9kZWZzPgogIDxyZWN0IGNsYXNzPSJjbHMtMSIgd2lkdGg9IjkuNDY5IiBoZWlnaHQ9IjkuNDY5Ii8+Cjwvc3ZnPgo="/>
@@ -93,7 +100,10 @@ class Hero extends Component {
 
                     <rect id="Bound" className="cls-4" x="135" y="59.156" width="39.906" height="1272.844"/>
                   <use xlinkHref="#Inner_Panel" className="cls-12"/>
-                  <g><rect id="Display_Border" data-name="Display Border" className="cls-3" x="136" y="54" width="1702" height="1273"/>
+                  <g id="panel_display"><rect id="Display_Border" data-name="Display Border" className="cls-3" x="136" y="54" width="1702" height="1273"/>
+                  <foreignObject id="animation_container" x="136" y="54" width="1702" height="1273">
+                    { this.state.animationLoaded && <Animation /> }
+                  </foreignObject>
                   <rect id="Blur_Bar" data-name="Blur Bar" className="cls-16" x="1594" y="40" width="252" height="1390" />
                   <rect id="white_overlay" data-name="White Overlay" className="cls-17" x="1625" y="54" width="212" height="1273" />
                   </g>
@@ -149,6 +159,27 @@ class Hero extends Component {
 
             </div>
         )
+    }
+    componentDidMount () {
+        const blackout = document.createElement('div')
+        const hero = document.querySelector('.Hero')
+
+        const playAnimation = () => {
+            requestAnimationFrame(()=> {
+                this.setState({
+                    animationLoaded: true
+                })
+                hero.removeEventListener("click", playAnimation)
+                hero.classList.add('open')
+                blackout.classList.add('blackout')
+                document.querySelector('body').appendChild(blackout)
+                requestAnimationFrame(()=> {
+                    blackout.style.opacity = 1
+                })
+            })
+        }
+
+        hero.addEventListener("click", playAnimation, false)
     }
 }
 

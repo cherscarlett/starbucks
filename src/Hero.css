@@ -11,6 +11,11 @@
     overflow: hidden;
     max-width:90vw;
     filter: drop-shadow(16px 0 16px black);
+    cursor: pointer;
+}
+
+.Hero.open {
+    cursor: default;
 }
 
 .Hero:after {
@@ -29,20 +34,31 @@
 }
 
 
-.Hero:hover, .Hero:focus, .Hero:active {
+.Hero:hover, .Hero:focus, .Hero:active, .Hero.open {
     transform: rotate(90deg) translate(25vh, -3vw) scale(1.5);
-    cursor: pointer;
 }
 
-.Hero:hover:after, .Hero:focus:after, .Hero:active:after {
+.Hero:hover:after, .Hero:focus:after, .Hero:active:after, .Hero.open:after {
     animation: none;
+}
+
+.blackout {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .8);
+    opacity: 0;
+    transition: opacity 600ms ease-in-out;
 }
 
 @media (min-width:481px) {
     .Hero {
         max-width:90vw;
     }
-    .Hero:hover, .Hero:focus, .Hero:active {
+    .Hero:hover, .Hero:focus, .Hero:active, .Hero.open {
         transform: rotate(90deg) translate(25vh, -4vw) scale(1.5);
     }
 }
@@ -52,7 +68,7 @@
         max-width:60vw;
         transform: rotate(12deg) translate(350px, 115px);
     }
-    .Hero:hover, .Hero:focus, .Hero:active {
+    .Hero:hover, .Hero:focus, .Hero:active, .Hero.open {
         transform: rotate(0deg) translate(180px, 120px) scale(1.5);
     }
 
@@ -108,7 +124,7 @@
         max-width:60vw;
         transform: rotate(10deg) translate(340px, 185px);
     }
-    .Hero:hover, .Hero:focus, .Hero:active {
+    .Hero:hover, .Hero:focus, .Hero:active, .Hero.open {
         transform: rotate(0deg) translate(20vw, 25vw) scale(1.5);
     }
 }
@@ -125,7 +141,7 @@
         max-width:55vw;
         transform: rotate(10deg) translate(340px, 165px);
     }
-    .Hero:hover, .Hero:focus, .Hero:active {
+    .Hero:hover, .Hero:focus, .Hero:active, .Hero.open {
         transform: rotate(0deg) translate(25vw, 15vw) scale(1.5);
     }
 }
@@ -135,9 +151,18 @@
         max-width:45vw;
         transform: rotate(10deg) translate(540px, 140px);
     }
-    .Hero:hover, .Hero:focus, .Hero:active {
+    .Hero:hover, .Hero:focus, .Hero:active, .Hero.open {
         transform: rotate(0deg) translate(25vw, 10vw) scale(1.4);
     }
+}
+
+.Hero.open g#status_bar, .Hero.open g#Apps, .Hero.open rect#Blur_Bar, .Hero.open rect#white_overlay {
+    opacity: 1;
+    transition: opacity 600ms ease-in-out;
+}
+
+.Hero.open rect#Display_Border {
+    fill: black;
 }
 
 @keyframes shine {
