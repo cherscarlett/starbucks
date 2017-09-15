@@ -89,7 +89,7 @@ class Animation extends Component {
             animations.push(frame)
         })
 
-        audio.addEventListener("load", loaded(i))
+        audio.addEventListener("load", loaded(animations.length))
     }
 }
 
