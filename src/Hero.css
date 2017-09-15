@@ -12,6 +12,7 @@
     cursor: pointer;
     filter: drop-shadow(16px 0 16px black);
     transition: all 600ms ease-in-out;
+    transform-origin: center;
 }
 
 .Hero.open {
