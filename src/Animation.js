@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Track from './audio/mocha-drip.mp3'
 import './Animation.css'
 
 function importAll(r) {
@@ -22,6 +23,11 @@ class Animation extends Component {
         const canvas = document.getElementById('App-animation')
         const text = document.getElementById('Animation-text')
         const animations = []
+        const audio = new Audio()
+
+        audio.src = Track
+        audio.volume = '0.3'
+        audio.autoplay = true
 
         let loadedNumber = 0
         requestAnimationFrame(()=> {
@@ -62,6 +68,7 @@ class Animation extends Component {
             loadedNumber++
             if (Object.values(Frames).length - 1 === loadedNumber) {
                 setTimeout(() => {
+                    canvas.appendChild(audio)
                     text.style.opacity = 0
                     theLoop(animations[0], 0)
                 }, 10000)

@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import './Hero.css'
 import IpadBackground from './images/desk-starbucks-ipad-background.jpg'
 import Animation from './Animation'
-import Track from './audio/mocha-drip.mp3'
 
 const blackout = document.createElement('div')
 
@@ -165,13 +164,8 @@ class Hero extends Component {
     }
     componentDidMount () {
         const hero = document.querySelector('.Hero')
-        const audio = new Audio()
 
         const playAnimation = () => {
-            audio.src = Track
-            audio.volume = '0.3'
-            hero.appendChild(audio)
-            audio.play()
             requestAnimationFrame(()=> {
                 this.setState({
                     animationLoaded: true
