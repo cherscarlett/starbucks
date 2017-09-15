@@ -55,6 +55,11 @@ class Animation extends Component {
             } else {
                 setTimeout(() => {
                     animation.style.opacity = 0
+                    text.classList.add('end')
+                    requestAnimationFrame(() => {
+                        text.style.opacity = 1
+                        animation.parentNode.removeChild(animation)
+                    })
                 }, 10000)
             }
         }

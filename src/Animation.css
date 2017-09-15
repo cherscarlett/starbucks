@@ -42,6 +42,18 @@ foreignObject#animation_container {
 	animation: fade 3s infinite;
 }
 
+#Animation-text.end:before {
+    content:'fin';
+    font-size: 6em;
+    font-family: 'Satisfy', cursive;
+    display: block;
+}
+
+
+#Animation-text.end:after {
+    content:'';
+}
+
 @media (min-width:861px) {
     foreignObject#animation_container {
         transform: none;
