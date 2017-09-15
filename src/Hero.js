@@ -171,6 +171,7 @@ class Hero extends Component {
             audio.src = Track
             audio.volume = '0.3'
             hero.appendChild(audio)
+            audio.play()
             requestAnimationFrame(()=> {
                 this.setState({
                     animationLoaded: true

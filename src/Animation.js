@@ -62,7 +62,6 @@ class Animation extends Component {
             loadedNumber++
             if (Object.values(Frames).length - 1 === loadedNumber) {
                 setTimeout(() => {
-                    audio.play()
                     text.style.opacity = 0
                     theLoop(animations[0], 0)
                 }, 10000)
