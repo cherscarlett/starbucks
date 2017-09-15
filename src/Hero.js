@@ -15,7 +15,6 @@ class Hero extends Component {
     render() {
         return (
             <div className="Hero">
-            <h1>Test</h1>
             <svg id="ipad-full" data-name="iPad" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" width="1973" height="1391" viewBox="0 0 1973 1391">
             <defs>
                 <pattern patternTransform="rotate(-90)" id="ipad-background" patternUnits="userSpaceOnUse" width="1391" height="1973">
