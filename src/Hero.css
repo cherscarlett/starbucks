@@ -7,11 +7,11 @@
 
 .Hero {
     transform: rotate(74deg) translate(75%, -50%);
-    transition: all ease-in-out 600ms;
     overflow: hidden;
     max-width:90vw;
-    filter: drop-shadow(16px 0 16px black);
     cursor: pointer;
+    filter: drop-shadow(16px 0 16px black);
+    transition: all 600ms ease-in-out;
 }
 
 .Hero.open {
