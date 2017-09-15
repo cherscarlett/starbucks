@@ -27,7 +27,7 @@ class Animation extends Component {
 
         audio.src = Track
         audio.volume = '0.3'
-        audio.autoplay = true
+        canvas.appendChild(audio)
 
         let loadedNumber = 0
         requestAnimationFrame(()=> {
@@ -68,7 +68,7 @@ class Animation extends Component {
             loadedNumber++
             if (Object.values(Frames).length - 1 === loadedNumber) {
                 setTimeout(() => {
-                    canvas.appendChild(audio)
+                    audio.play()
                     text.style.opacity = 0
                     theLoop(animations[0], 0)
                 }, 10000)
