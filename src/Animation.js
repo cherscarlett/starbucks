@@ -51,7 +51,7 @@ class Animation extends Component {
                 setTimeout(() => {
                     theLoop(animations[i+1], i+1)
                     animation.parentNode.removeChild(animation)
-                }, 100)
+                }, 300)
             } else {
                 setTimeout(() => {
                     animation.style.opacity = 0
@@ -66,11 +66,18 @@ class Animation extends Component {
 
         const loaded = (i) => {
             loadedNumber++
-            if (Object.values(Frames).length - 1 === loadedNumber) {
+            if (Object.values(Frames).length === loadedNumber) {
                 setTimeout(() => {
                     canvas.appendChild(audio)
                     text.style.opacity = 0
-                    theLoop(animations[0], 0)
+                    if (!audio.paused || audio.currentTime) {
+                        theLoop(animations[0], 0)
+                    } else {
+                        canvas.addEventListener("click", () => {
+                            audio.play()
+                            theLoop(animations[0], 0)
+                        })
+                    }
                 }, 10000)
             }
         }
@@ -81,6 +88,8 @@ class Animation extends Component {
             frame.addEventListener("load", loaded(i))
             animations.push(frame)
         })
+
+        audio.addEventListener("load", loaded(i))
     }
 }
 
