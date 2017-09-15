@@ -6,7 +6,7 @@
 }
 
 .Hero {
-    transform: rotate(74deg) translate(345px, -185px);
+    transform: rotate(74deg) translate(75%, -50%);
     transition: all ease-in-out 600ms;
     overflow: hidden;
     max-width:90vw;
