@@ -2,6 +2,7 @@
   "name": "starbucks",
   "version": "0.1.0",
   "private": true,
+  "homepage" : "http://starbucks-origins.herokuapp.com",
   "dependencies": {
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
