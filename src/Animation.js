@@ -8,7 +8,7 @@ function importAll(r) {
   return images;
 }
 
-const Scenes = importAll(require.context('./images/frames', false, /\.(png)$/))
+const Frames = importAll(require.context('./images/frames', false, /\.(png)$/))
 
 class Animation extends Component {
     render() {
@@ -23,6 +23,12 @@ class Animation extends Component {
         const canvas = document.getElementById('App-animation')
         const text = document.getElementById('Animation-text')
         const animations = []
+        const audio = new Audio()
+
+        audio.src = Track
+        audio.volume = '0.3'
+        audio.autoplay = true
+
         let loadedNumber = 0
         requestAnimationFrame(()=> {
             canvas.style.opacity = 1
@@ -45,25 +51,30 @@ class Animation extends Component {
                 setTimeout(() => {
                     theLoop(animations[i+1], i+1)
                     animation.parentNode.removeChild(animation)
-                }, 150)
+                }, 100)
+            } else {
+                setTimeout(() => {
+                    animation.style.opacity = 0
+                }, 10000)
             }
         }
 
         const loaded = (i) => {
             loadedNumber++
-            if (Object.values(Scenes).length - 1 === loadedNumber) {
+            if (Object.values(Frames).length - 1 === loadedNumber) {
                 setTimeout(() => {
+                    canvas.appendChild(audio)
                     text.style.opacity = 0
                     theLoop(animations[0], 0)
                 }, 10000)
             }
         }
 
-        Object.values(Scenes).forEach((path, i) => {
-            const scene = new Image()
-            scene.src = path
-            scene.addEventListener("load", loaded(i))
-            animations.push(scene)
+        Object.values(Frames).forEach((path, i) => {
+            const frame = new Image()
+            frame.src = path
+            frame.addEventListener("load", loaded(i))
+            animations.push(frame)
         })
     }
 }
